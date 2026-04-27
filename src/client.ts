@@ -754,4 +754,31 @@ export class WebRobotClient {
   strapiDelete(table: string, recordId: string): Promise<unknown> {
     return this.delete(`/api/strapi-tables/${WebRobotClient.enc(table)}/${WebRobotClient.enc(recordId)}`);
   }
+
+  // ── Manifest (pipeline YAML declarative) ─────────────────────────────────────
+
+  /** POST /webrobot/api/manifest/apply — apply a multi-document YAML manifest. */
+  manifestApply(yamlContent: string): Promise<unknown> {
+    return this.post("/webrobot/api/manifest/apply", { yaml: yamlContent });
+  }
+
+  /** POST /webrobot/api/manifest/validate — validate without applying. */
+  manifestValidate(yamlContent: string): Promise<unknown> {
+    return this.post("/webrobot/api/manifest/validate", { yaml: yamlContent });
+  }
+
+  /** GET /webrobot/api/manifest/export — export resource as manifest YAML. */
+  manifestExport(kind: string, nameOrId: string): Promise<unknown> {
+    return this.get("/webrobot/api/manifest/export", { kind, id: nameOrId });
+  }
+
+  /** GET /webrobot/api/manifest/stages — list available pipeline stages. */
+  manifestStagesList(params?: { category?: string; type?: string; search?: string }): Promise<unknown> {
+    return this.get("/webrobot/api/manifest/stages", params as Record<string, unknown>);
+  }
+
+  /** GET /webrobot/api/manifest/stages/{name} — stage detail. */
+  manifestStagesGet(name: string): Promise<unknown> {
+    return this.get(`/webrobot/api/manifest/stages/${WebRobotClient.enc(name)}`);
+  }
 }
