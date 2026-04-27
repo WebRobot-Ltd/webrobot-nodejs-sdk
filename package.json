@@ -1,0 +1,25 @@
+{
+  "name": "webrobot-sdk",
+  "version": "0.3.10",
+  "description": "WebRobot Node.js SDK — REST client for https://api.webrobot.eu (138 endpoints)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["webrobot", "sdk", "api", "etl", "automation"],
+  "author": "WebRobot Ltd <support@webrobot.eu>",
+  "license": "MIT",
+  "homepage": "https://github.com/WebRobot-Ltd/webrobot-sdk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WebRobot-Ltd/webrobot-sdk.git"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
