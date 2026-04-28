@@ -82,9 +82,14 @@ export interface DatasetDto {
   id?: string;
   name?: string;
   description?: string;
-  type?: string;
+  datasetType?: string;
   format?: string;
-  indexed?: boolean;
+  storagePath?: string;
+  storageType?: string;
+  cloudCredentialId?: number;
+  trinoSchema?: string;
+  enabled?: boolean;
+  createdAt?: string;
   [key: string]: unknown;
 }
 
